@@ -5,7 +5,6 @@ import java.util.Date;
 public class Invoice {
 	
 	public Invoice(Date date, double total, String clientName) {
-		super();
 		setDate(date);
 		setTotal(total);
 		setClientName(clientName);

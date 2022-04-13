@@ -1,12 +1,12 @@
 package processor;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public class TestProcessor {
 
 	private Processor processor;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		processor = new Processor();
 	}

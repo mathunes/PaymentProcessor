@@ -35,7 +35,7 @@ public class TestProcessor {
 		bankSlips.add(bankSlip2);
 		bankSlips.add(bankSlip3);
 		
-		assertTrue(processor.process(invoice, bankSlips));
+		List<Payment> = processor.process(invoice, bankSlips);
 	}
 
 }

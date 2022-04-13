@@ -1,5 +1,6 @@
 package processor;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -62,4 +63,21 @@ public class TestProcessor {
 		assertTrue(invoice.isPaid());
 	}
 
+	@Test
+	public void testPayLessThanTheValueOfInvoice() {
+		Invoice invoice = new Invoice(new Date(), 100.00, "Julie");
+		
+		BankSlip bankSlip1 = new BankSlip("9F86D081884C7D659A2FEAA0C55AD0", new Date(), 30.00);
+		BankSlip bankSlip2 = new BankSlip("DAD080581984A0D6FEAA26C559C7F8", new Date(), 50.00);
+		
+		List<BankSlip> bankSlips = new ArrayList<BankSlip>();
+		
+		bankSlips.add(bankSlip1);
+		bankSlips.add(bankSlip2);
+		
+		processor.process(invoice, bankSlips);
+		
+		assertFalse(invoice.isPaid());
+	}
+	
 }

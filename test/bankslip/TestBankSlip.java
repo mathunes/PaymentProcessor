@@ -19,6 +19,7 @@ public class TestBankSlip {
 		bankSlip = new BankSlip("9F86D081884C7D659A2FEAA0C55AD0", new Date(), 50.00);
 	}
 	
+	@DisplayName("Check bank slip data")
 	@Test
 	public void testCheckBankSlipData() {
 		assertEquals(bankSlip.getCode(), "9F86D081884C7D659A2FEAA0C55AD0");

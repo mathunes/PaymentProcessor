@@ -9,11 +9,13 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 
 import bankslip.BankSlip;
 import invoice.Invoice;
 import payment.Payment;
 
+@DisplayName("Processor test class")
 public class TestProcessor {
 
 	private Processor processor;
@@ -23,6 +25,7 @@ public class TestProcessor {
 		processor = new Processor();
 	}
 	
+	@DisplayName("Check payments type")
 	@Test
 	public void testCheckPaymentsType() {
 		Invoice invoice = new Invoice(new Date(), 100.00, "Julie");
@@ -44,6 +47,7 @@ public class TestProcessor {
 		}
 	}
 	
+	@DisplayName("Check the bank slips with the same value of invoice")
 	@Test
 	public void testPayTheSameValueOfInvoice() {
 		Invoice invoice = new Invoice(new Date(), 100.00, "Julie");
@@ -63,6 +67,7 @@ public class TestProcessor {
 		assertTrue(invoice.isPaid());
 	}
 
+	@DisplayName("Check the bank slips with a value lower than invoice")
 	@Test
 	public void testPayLessThanTheValueOfInvoice() {
 		Invoice invoice = new Invoice(new Date(), 100.00, "Julie");
@@ -80,6 +85,7 @@ public class TestProcessor {
 		assertFalse(invoice.isPaid());
 	}
 
+	@DisplayName("Check the bank slips with a value greater than invoice")
 	@Test
 	public void testPayMoreThanTheValueOfInvoice() {
 		Invoice invoice = new Invoice(new Date(), 100.00, "Julie");

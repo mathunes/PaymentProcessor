@@ -1,10 +1,13 @@
 package processor;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import bankslip.BankSlip;
 import invoice.Invoice;
@@ -13,7 +16,7 @@ public class TestProcessor {
 
 	private Processor processor;
 	
-	@BeforeEach
+	@Before
 	public void setUp() {
 		processor = new Processor();
 	}
@@ -26,13 +29,13 @@ public class TestProcessor {
 		BankSlip bankSlip2 = new BankSlip("DAD080581984A0D6FEAA26C559C7F8", new Date(), 50.00);
 		BankSlip bankSlip3 = new BankSlip("A0DC559C07D6F88FEADA8A26094581", new Date(), 20.00);
 		
-		List<BankSlip> bankSlips;
+		List<BankSlip> bankSlips = new ArrayList<BankSlip>();
 		
 		bankSlips.add(bankSlip1);
 		bankSlips.add(bankSlip2);
 		bankSlips.add(bankSlip3);
 		
-		processor.process(invoice, bankSlips);
+		assertTrue(processor.process(invoice, bankSlips));
 	}
 
 }

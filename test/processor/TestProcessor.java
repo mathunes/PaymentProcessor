@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import bankslip.BankSlip;
 import invoice.Invoice;
+import payment.Payment;
 
 public class TestProcessor {
 
@@ -35,7 +36,7 @@ public class TestProcessor {
 		bankSlips.add(bankSlip2);
 		bankSlips.add(bankSlip3);
 		
-		List<Payment> = processor.process(invoice, bankSlips);
+		List<Payment> payments = processor.process(invoice, bankSlips);
 	}
 
 }
